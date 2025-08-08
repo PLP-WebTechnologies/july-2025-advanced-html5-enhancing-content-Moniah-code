@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Enhanced Form Example</title>
+    <meta name="description" content="An example of an enhanced HTML5 form with semantic structure, validation, media, lists, and tables." />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            max-width: 800px;
+            line-height: 1.5;
+            color: #333;
+        }
+        header, main, footer {
+            margin-bottom: 2rem;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1rem 0;
+        }
+        table, th, td {
+            border: 1px solid #666;
+        }
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+        }
+        fieldset {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 1px solid #ccc;
+        }
+        legend {
+            font-weight: bold;
+            padding: 0 0.5rem;
+        }
+        label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.4rem;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            background-color: #005fcc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #004bb5;
+        }
+        .media {
+            margin-top: 1rem;
+        }
+        ul {
+            margin-left: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Registration and Feedback Form</h1>
+        <p>Welcome! Please fill out the form below to register and share your preferences.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Information</h2>
+
+            <h3>Our Services</h3>
+            <ul>
+                <li>Web Design</li>
+                <li>Software Development</li>
+                <li>Digital Marketing</li>
+                <li>SEO Optimization</li>
+            </ul>
+
+            <h3>Pricing Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Basic</th>
+                        <th>Premium</th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Web Design</td>
+                        <td>$500</td>
+                        <td>$1,000</td>
+                        <td>$2,000</td>
+                    </tr>
+                    <tr>
+                        <td>Software Development</td>
+                        <td>$1,200</td>
+                        <td>$2,500</td>
+                        <td>$5,000</td>
+                    </tr>
+                    <tr>
+                        <td>Digital Marketing</td>
+                        <td>$300</td>
+                        <td>$700</td>
+                        <td>$1,500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Registration Form</h2>
+            <form action="#" method="post" novalidate>
+                <fieldset>
+                    <legend>Personal Details</legend>
+
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Your full name" required autocomplete="name" />
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required autocomplete="email" />
+
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX" pattern="^\+254\s7\d{2}\s\d{3}\s\d{3}$" autocomplete="tel" />
+                    <small>Format: +254 7XX XXX XXX</small>
+
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required max="2007-12-31" />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Account Info</legend>
+
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Choose a username" required autocomplete="username" />
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a password" required minlength="8" autocomplete="new-password" />
+
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required minlength="8" autocomplete="new-password" />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Preferences</legend>
+
+                    <label for="newsletter">Subscribe to newsletter?</label>
+                    <select id="newsletter" name="newsletter" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="yes">Yes, please</option>
+                        <option value="no">No, thanks</option>
+                    </select>
+
+                    <label for="bio">Short Bio</label>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Tell us a bit about yourself" maxlength="250"></textarea>
+
+                    <label for="referrer">How did you hear about us?</label>
+                    <input list="referrers" id="referrer" name="referrer" placeholder="Select or type an option" autocomplete="off" />
+                    <datalist id="referrers">
+                        <option value="Friend or Family">
+                        <option value="Social Media">
+                        <option value="Online Advertisement">
+                        <option value="Search Engine">
+                        <option value="Other">
+                    </datalist>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Additional Info</legend>
+
+                    <label for="member-id">Member ID (readonly)</label>
+                    <input type="text" id="member-id" name="member-id" value="A123456789" readonly />
+
+                    <label for="profile-audio">Upload a voice intro (optional)</label>
+                    <input type="file" id="profile-audio" name="profile-audio" accept="audio/*" />
+
+                    <div class="media">
+                        <audio controls>
+                            <source src="sample-audio.mp3" type="audio/mpeg" />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </fieldset>
+
+                <button type="submit">Submit Registration</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
